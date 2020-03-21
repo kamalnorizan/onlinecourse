@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->date('publish_at')->nullable(); // Coldate
             $table->boolean('is_publish')->default(false); // Colbool
             $table->bigInteger('user_id')->unsigned(); // ColBigI
-            $table->string('category', 20)->nullable(); // ColSt
+            $table->string('category', 20)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // ColIndFor
             $table->timestamps();
         });
