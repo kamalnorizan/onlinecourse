@@ -14,7 +14,47 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <table class="table">
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                Date Register
+                            </td>
+                            <td>
+                                Action(s)
+                            </td>
+                        </tr>
+                        @foreach ($users as $key=>$user)
+                        <tr>
+                            <td>
+                                {{($users->currentPage()-1)*$users->perPage()+$key+1}}
+                            </td>
+                            <td>
+                                {{$user->name}}
+                            </td>
+                            <td>
+                                {{$user->email}}
+
+                            </td>
+                            <td>
+                                {{\Carbon\Carbon::parse($user->created_at)->format('d-m-Y')}}
+
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                    {{$users->links()}}
                 </div>
             </div>
         </div>
