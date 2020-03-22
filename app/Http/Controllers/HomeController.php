@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+
 class HomeController extends Controller
 {
-    /**
+    //
+        /**
      * Create a new controller instance.
      *
      * @return void
@@ -23,8 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
-        // dd($users);
-        return view('home',compact('users'));
+        $posts = Post::paginate(10);
+        return view('home',compact('posts'));
     }
 }
